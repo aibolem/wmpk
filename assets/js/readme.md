@@ -11,6 +11,6 @@ https://cdnjs.cloudflare.com/ajax/libs/vexflow/1.2.0/vexflow.js
 
 https://cdnjs.cloudflare.com/ajax/libs/vexflow/1.2.0/vexflow-debug.js
 
-
+https://github.com/0xfe/vexflow/releases
 
 
