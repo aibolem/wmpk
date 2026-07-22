@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title> WMPK - Web MIDI Piano Keyboard </title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="assets/css/font-awesome.min.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	    <link href="css/keyboard.css" rel="stylesheet">
+	</head>
+	<body>
+        <div class="navbar navbar-default navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>-->
+              <a class="navbar-brand" href="/">WMPK - Web MIDI Piano Keyboard</a>
+            </div>
+            <!--<div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="#about">About</a></li>
+              </ul>
+            </div>--><!--/.nav-collapse -->
+          </div>
+        </div>
+
+        <div class="container"  ng-app="WMPK" ng-controller="mainController">
+          
+            <div class="text-center">
+                <div class="row">
+                    <div class="col-lg-7 col-md-7">
+                        <div>
+                            <div class="col-lg-6 col-md-6">
+                                <a class="btn btn-default btn-lg" ng-click="reload()">
+                                    <i class="fa fa-refresh fa-fw"></i>    
+                                    <span class="network-name">Refresh Devices</span>
+                                </a>
+                                <a class="btn btn-default btn-lg" ng-click="setSoundActive(false)" ng-show="synthesisOn">
+                                    <i class="fa fa-volume-up fa-fw"></i>
+                                    <span class="network-name">Toggle Sound</span>
+                                </a>
+                                <a class="btn btn-default btn-lg" ng-click="setSoundActive(true)" ng-hide="synthesisOn">
+                                    <i class="fa fa-volume-off fa-fw"></i>
+                                    <span class="network-name">Toggle Sound</span>
+                                </a>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                            <!--Select your instrument:--> 
+                                <span >MIDI Input: </span>
+                                <select ng-model="input" 
+                                        ng-change="selectInput(input[0])" 
+                                        ng-options="i for i in inputs" 
+                                        data-toggle="tooltip" data-placement="top"
+                                        title="Input MIDI Device">
+                                </select>
+                                <br/>
+                                <span >MIDI Output: </span>
+                                <select ng-model="output" 
+                                        ng-change="selectOutput(output[0])" 
+                                        ng-options="o for o in outputs"
+                                        data-toggle="tooltip" data-placement="top"
+                                        title="Output MIDI Device">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr/>
+            </div>
+
+            <div  >
+                <div class="keyboard" ng-controller="keyboardController">
+                    <div keyboard>
+                        Sorry, your Browser does not support HTML5, please use the latests Chrome Browser
+                    </div>
+                </div>
+            </div>
+          
+        </div><!-- /.container -->
+	<!-- script references -->
+		<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>-->
+	    <script src="assets/js/underscore-min.js"></script>
+	    <script src="assets/js/jquery.min.js"></script>
+
+        <!-- Markdown, for the blog -->
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.10/angular.min.js"></script>-->
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.10/angular-route.js"></script>-->
+        <script src="assets/js/angular.min.js"></script>
+        <!--<script src="assets/js/bootstrap.min.js"></script>-->
+	        
+        <!-- deps-->
+        <script src="assets/js/base64-binary.js"></script>
+        <script src="assets/js/MIDI.min.js"></script>
+        <!-- And my actual application, the order is important -->
+        <script src="src/piano_setup.js"></script>
+        <script src="src/keys_dimensions.js"></script>
+        <script src="src/keyboard_mappings.js"></script>
+        <script src="src/notes_info.js"></script>
+        <script src="src/MIDICapture.js"></script>
+        <script src="src/wmpk.js"></script>
+	</body>
+</html>
